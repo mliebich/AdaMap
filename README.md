@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Glong is a tool which let's students explore a topic by travelling on a map node by node.
+The visit of a node has prerequisited nodes, which must be completed first. The completion
+is marked as done after an offline or online assessment. After succesful completion, new nodes
+are offered on the map and the learning journey can continue.
 
-Things you may want to cover:
+The app is built with:
 
-* Ruby version
+* Ruby 3.1.1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails 7.0.2.4
