@@ -7,4 +7,5 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.js"
-pin "leader-line", to: "https://ga.jspm.io/npm:leader-line@1.0.7/leader-line.min.js"
+pin "sortablejs", to: "https://ga.jspm.io/npm:sortablejs@1.15.0/modular/sortable.esm.js"
+pin "leader-line-new", to: "https://ga.jspm.io/npm:leader-line-new@1.1.9/leader-line.min.js"
