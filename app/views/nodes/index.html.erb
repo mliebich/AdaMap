@@ -8,6 +8,11 @@
     <%= link_to 'New node', new_node_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
+  <div data-controller="nodes">
+    <div data-nodes-target="start">Start</div>
+    <div data-nodes-target="end">End</div>
+  </div>
+
   <div id="nodes" class="min-w-full">
     <%= render @nodes %>
   </div>
