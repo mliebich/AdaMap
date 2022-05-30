@@ -4,10 +4,19 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
+    console
   end
 
   # GET /tasks/1 or /tasks/1.json
   def show
+    @task = Task.find(params[:id])
+
+    if (session[:user_id].present?)
+      @user = User.find(session[:user_id])
+    else
+      @user = nil
+    end
+    console
   end
 
   # GET /tasks/new

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :users
+  # Nested resource
+  resources :users do
+    resources :goals
+  end
   resources :nodes
   resources :tasks
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
