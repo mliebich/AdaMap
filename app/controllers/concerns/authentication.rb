@@ -35,7 +35,7 @@ module Authentication
   end
 
   def remember(active_session)
-    cookies.permanent.encrypted[:remember_token] = active_session.remember_token
+    cookies.permanent.encrypted[:remember_token] = { value: active_session.remember_token, httponly: true }
   end
 
   private
@@ -53,6 +53,6 @@ module Authentication
   end
 
   def store_location
-    session[:user_return_to] = request.original_url if request.get? && request.local?
+    session[:user_return_to] = request.original_url if request.get?
   end
 end

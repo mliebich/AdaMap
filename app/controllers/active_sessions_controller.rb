@@ -16,9 +16,9 @@ class ActiveSessionsController < ApplicationController
   end
 
   def destroy_all
-    reset_session
     forget_active_session
     current_user.active_sessions.destroy_all
+    reset_session
 
     redirect_to root_path, notice: "Signed out."
   end
