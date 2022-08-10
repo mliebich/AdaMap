@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :destroy, :update]
   before_action :redirect_if_authenticated, only: [:create, :new]
 
+  def index
+    @users = User.all
+    console
+  end
+
   def create
     @user = User.new(create_user_params)
     if @user.save

@@ -2,13 +2,33 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Tasks</h1>
-    <%= link_to 'New task', new_task_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <div class="flex space-x-4"><%= link_to 'Create task', new_task_path, class: "text-yellow-500 hover:text-white border border-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900" %></div>
+  <div class="overflow-auto hidden md:block shadow-md sm:rounded-lg border-2">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                  <th scope="col" class="py-3 px-6">
+                      Title
+                  </th>
+                  <th scope="col" class="py-3 px-6">
+                      Status
+                  </th>
+                  <th scope="col" class="py-3 px-6">
+                      Action
+                 </th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @tasks = Task.all %>
+            <% @tasks.each do |task| %>
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="py-4 px-6"><%= task.title %></td>
+                <td class="py-4 px-6"><%= task.status %></td>
+                <td class="py-4 px-6"><%= link_to 'Edit', edit_task_path(task) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
   </div>
 
-  <div id="tasks" class="min-w-full">
-    <%= render @tasks %>
-  </div>
 </div>

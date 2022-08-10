@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "tasks#index"
+  root "sessions#new"
   # Nested resource
   resources :users do
     resources :goals
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "sign_up", to: "users#create"
   get "sign_up", to: "users#new"
   get "sign_out", to: "tasks#index"
+  get "logout", to: "sessions#destroy"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
   get "login", to: "sessions#new"
