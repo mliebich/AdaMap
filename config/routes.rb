@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :nodes
   resources :tasks
 
-  post "sign_up", to: "users#create"
+  post "sign_up", to: "users#create" 
   get "sign_up", to: "users#new"
   get "sign_out", to: "tasks#index"
   get "logout", to: "sessions#destroy"
