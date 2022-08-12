@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :nodes
   resources :tasks
 
-  post "sign_up", to: "users#create" 
+  post "sign_up", to: "users#create"
   get "sign_up", to: "users#new"
   get "sign_out", to: "tasks#index"
   get "logout", to: "sessions#destroy"
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get "login", to: "sessions#new"
   put "account", to: "users#update"
-  get "account", to: "users#edit"
+  get "account", to: "account#tasks"
   delete "account", to: "users#destroy"
   resources :passwords, only: [:create, :edit, :new, :update], param: :password_reset_token
   resources :confirmations, only: [:create, :edit, :new], param: :confirmation_token
