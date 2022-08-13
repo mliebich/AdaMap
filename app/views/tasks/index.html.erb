@@ -2,6 +2,7 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
+  <h1 class="title">Tasks</h1>
   <div class="flex space-x-4"><%= link_to 'Create task', new_task_path, class: "btn" %></div>
   <div class="overflow-auto hidden md:block shadow-md sm:rounded-lg border-2">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -30,5 +31,4 @@
           </tbody>
       </table>
   </div>
-
 </div>

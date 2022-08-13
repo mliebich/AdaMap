@@ -1,5 +1,6 @@
 class AccountController < ApplicationController
-  def tasks
-    @tasks = Task.all
+  def goals
+    @goals = current_user.goals
+    console
   end
 end

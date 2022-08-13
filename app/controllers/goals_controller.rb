@@ -1,8 +1,14 @@
 class GoalsController < ApplicationController
   def create
-    task = Task.find(params[:task_id])
-    current_user.goals << task
-    redirect_to goal_path(task)
+    goal = Task.find(params[:task_id])
+    current_user.goals << goal
+    redirect_to goal_path(goal)
     console
+  end
+  def destroy
+    goal = Task.find(params[:task_id])
+    current_user.goals.delete(goal)
+    flash[:notice] = "Goal successfully removed"
+    redirect_to account_goals_path
   end
 end

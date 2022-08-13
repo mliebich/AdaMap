@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :goals
   end
+
   resources :nodes
   resources :tasks
 
@@ -15,8 +16,11 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get "login", to: "sessions#new"
   put "account", to: "users#update"
-  get "account", to: "account#tasks"
+  get "account/goals", to: "account#goals"
+  get "account/tasks", to: "account#tasks"
+  delete "goal", to: "goals#destroy"
   delete "account", to: "users#destroy"
+
   resources :passwords, only: [:create, :edit, :new, :update], param: :password_reset_token
   resources :confirmations, only: [:create, :edit, :new], param: :confirmation_token
 

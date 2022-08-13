@@ -1,0 +1,19 @@
+<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <div class="p-5">
+    <a href="#">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= title %> ID:<%= id %></h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">This would be the short description of the task</p>
+    <div class="inline-block ml-2">
+      <%= form_tag(goal_path(current_user), method: :delete) do %>
+        <%= hidden_field_tag('task_id', id) %>
+        <%= button_tag(class: 'btn', type: 'submit') do %>
+          Remove <%= id %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
