@@ -11,13 +11,8 @@ class TasksController < ApplicationController
   # GET /tasks/1 or /tasks/1.json
   def show
     @task = Task.find(params[:id])
-
-    if (session[:user_id].present?)
-      @user = User.find(session[:user_id])
-      @disable_add_goal = @user.goals.exists?(@idea.id)
-    else
-      @user = nil
-    end
+    @user = current_user
+    @disable_add_goal = current_user.goals.exists?(@task.id)
   end
 
   # GET /tasks/new

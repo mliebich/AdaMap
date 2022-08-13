@@ -9,7 +9,7 @@ module Authentication
 
   def authenticate_user!
     store_location
-    redirect_to login_path, alert: "You need to login to access that page." unless user_logged_in?
+    #redirect_to login_path, alert: "You need to login to access that page." unless user_logged_in?
   end
 
   def login(user)

@@ -5,6 +5,7 @@ class GoalsController < ApplicationController
     redirect_to goal_path(goal)
     console
   end
+
   def destroy
     goal = Task.find(params[:task_id])
     current_user.goals.delete(goal)
