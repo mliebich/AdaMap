@@ -6,7 +6,7 @@
     <%= render @task %>
     <%= form_tag(user_goals_path(current_user)) do %>
       <%= hidden_field_tag('task_id', @task.id) %>
-      <%= button_tag(class: 'btn', type: 'submit') do %>
+      <%= button_tag(class: 'btn', type: 'submit', disabled: @disable_add_goal) do %>
         Add
       <% end %>
     <% end %>
