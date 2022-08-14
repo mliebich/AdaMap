@@ -4,11 +4,18 @@ import  LeaderLine  from "leader-line-new"
 console.log('nodes_controller');
 
 export default class extends Controller {
-  static targets = [ "stat", "end"]
+  static targets = ["start", "end"]
+  static values = { id: Number}
 
-  connect() {
-    console.log(this.startTarget)
-    new LeaderLine(this.startTarget, this.endTarget,
+  initialize() {
+      console.log(this.idValue)
+      console.log(this.startTarget)
+      console.log(this.element.innerHTML)
+    }
+
+  connect(params) {
+    console.log(document.getElementById(2))
+    new LeaderLine(document.getElementById(2), this.endTarget,
     {
       color: 'green',
       size: 3,

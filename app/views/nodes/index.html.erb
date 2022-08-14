@@ -1,19 +1,25 @@
-<div class="w-full">
+
+<div class="flex justify-between items-center">
+  <h1 class="font-bold text-4xl">Learning map</h1>
+  <%= link_to 'New node', new_node_path, class: "btn" %>
+</div>
+
+<div class="flex justify-between items-center grid grid-cols-4 gap-4 p-4">
+  <% @nodes = Node.all %>
+  <% @nodes.each do |node| %>
+  <div data-controller="nodes" data-nodes-id-value="<%=node.id%>" class="card">
+      <div data-nodes-target="start" id="<%=node.id%>" class="btn"><%=node.title%></div>
+      <div data-nodes-target="end" class="btn">End</div>
+  </div>
+  <% end %>
+</div>
+
+<div class="">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Nodes</h1>
-    <%= link_to 'New node', new_node_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div data-controller="nodes">
-    <div data-nodes-target="start">Start</div>
-    <div data-nodes-target="end">End</div>
-  </div>
-
   <div id="nodes" class="min-w-full">
-    <%= render @nodes %>
+    <% render @nodes %>
   </div>
 </div>
