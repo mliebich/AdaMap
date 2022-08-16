@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}, presence: true, uniqueness: true
 
   has_many :tasks
+  has_many :goals
 
   has_many :active_sessions, dependent: :destroy
   # goals is just the name of the association (a user by nature has goals, not tasks :-))

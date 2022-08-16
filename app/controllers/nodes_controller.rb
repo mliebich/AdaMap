@@ -4,6 +4,7 @@ class NodesController < ApplicationController
   # GET /nodes or /nodes.json
   def index
     @nodes = Node.all
+    console
   end
 
   # GET /nodes/1 or /nodes/1.json

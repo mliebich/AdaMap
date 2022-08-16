@@ -1,4 +1,8 @@
 class GoalsController < ApplicationController
+  def index
+    @goals = Goal.all
+    console
+  end
   def create
     goal = Task.find(params[:task_id])
     current_user.goals << goal

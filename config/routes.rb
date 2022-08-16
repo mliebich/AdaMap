@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   put "account", to: "users#update"
   get "account/goals", to: "account#goals"
   get "account/tasks", to: "account#tasks"
+  get "account/learningmap", to: "account#learningmap"
   delete "goal", to: "goals#destroy"
   delete "account", to: "users#destroy"
 

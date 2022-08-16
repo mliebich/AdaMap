@@ -1,28 +1,26 @@
 import { Controller } from "@hotwired/stimulus"
 import  LeaderLine  from "leader-line-new"
 
-console.log('nodes_controller');
-
 export default class extends Controller {
   static targets = ["start", "end"]
-  static values = { id: Number }
+  static values = { id: Number, pre: Number }
 
   initialize() {
       console.log(this.idValue)
-      console.log(this.startTarget)
-      console.log(this.element.innerHTML)
+      console.log(this.preValue)
+      //console.log(this.element.innerHTML)
     }
 
   connect(params) {
-    console.log(document.getElementById(this.idValue))
+    console.log(this.idValue)
     var start = document.getElementById(this.idValue)
-    var end = this.endTarget
-    new LeaderLine(start, end,
+    var end = document.getElementById(this.preValue)
+    new LeaderLine(start, LeaderLine.pointAnchor(end, {x:50,y:50}),
     {
-      color: 'green',
       size: 3,
       dash: { animation: true },
-      startSocket: 'left', endSocket: 'left'
+      line: { outline: true, startSocketGravity: 500},
+      endPlug: 'hand'
     })
   }
 }
