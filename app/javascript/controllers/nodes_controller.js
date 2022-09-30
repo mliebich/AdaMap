@@ -21,7 +21,7 @@ export default class extends Controller {
     {
       color: 'green',
       size: 3,
-      dash: { animation: true },
+      dash: { animation: false },
       startSocket: 'left', endSocket: 'left'
     })
   }

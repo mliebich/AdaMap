@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import  LeaderLine  from "leader-line-new"
+import  PlainDraggable from "plain-draggable"
 
 export default class extends Controller {
   static targets = ["start", "end"]
@@ -9,18 +10,28 @@ export default class extends Controller {
       console.log(this.idValue)
       console.log(this.preValue)
       //console.log(this.element.innerHTML)
+      this.index = 0
     }
 
   connect(params) {
-    console.log(this.idValue)
     var start = document.getElementById(this.idValue)
     var end = document.getElementById(this.preValue)
-    new LeaderLine(start, LeaderLine.pointAnchor(end, {x:50,y:50}),
+    function fixLine() {
+      line.position();
+    }
+    new PlainDraggable(start, {onMove: fixLine});
+    var line = new LeaderLine(end, start,
     {
       size: 3,
       dash: { animation: true },
-      line: { outline: true, startSocketGravity: 500},
-      endPlug: 'hand'
+      line: { path: 'fluid'},
+      startSocket: 'top',
+      startPlug: 'square',
+      startPlugSize: 1.5,
+      startPlugColor: 'green',
+      endPlug: 'disc',
+      endPlugColor: 'blue',
+      endPlugSize: 2.5,
     })
   }
 }
