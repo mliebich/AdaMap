@@ -10,7 +10,6 @@ export default class extends Controller {
       console.log(this.idValue)
       console.log(this.preValue)
     }
-
   connect(params) {
     var start = document.getElementById(this.idValue)
     var end = document.getElementById(this.preValue)
@@ -27,6 +26,11 @@ export default class extends Controller {
       endPlugColor: '#0ea5e9',
       endPlugSize: 1.25,
       gradient: true
-    })
+    });
+    var draggablestart = new PlainDraggable(start, {onMove: line.position()});
+    var draggableend =  new PlainDraggable(end, {onMove: line.position()});
   }
+  move(){
+    window.dispatchEvent(new Event('resize'));
+  };
 }
