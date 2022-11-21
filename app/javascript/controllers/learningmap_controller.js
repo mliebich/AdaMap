@@ -13,6 +13,7 @@ export default class extends Controller {
   connect(params) {
     var start = document.getElementById(this.idValue)
     var end = document.getElementById(this.preValue)
+
     var line = new LeaderLine(end, start,
     {
       size: 3,
@@ -27,8 +28,8 @@ export default class extends Controller {
       endPlugSize: 1.25,
       gradient: true
     });
-    var draggablestart = new PlainDraggable(start, {onMove: line.position()});
-    var draggableend =  new PlainDraggable(end, {onMove: line.position()});
+    new PlainDraggable(start, {onMove: line.position()});
+    new PlainDraggable(end, {onMove: line.position()});
   }
   move(){
     window.dispatchEvent(new Event('resize'));

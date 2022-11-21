@@ -9,7 +9,7 @@
     <% @goals = current_user.goals %>
     <% @goals.each_with_index do |goal, index| %>
       <div data-controller="learningmap" data-learningmap-id-value="<%=goal.id%>" data-learningmap-pre-value="<%=goal.prerequisite_id%>" class="h-96 translate">
-        <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class="card"><%=goal.title%> <%=goal.id%></div>
+        <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class="card "><b><%=goal.title%></b> <%=goal.id%></div>
         <div data-learningmap-target="end" pre="<%goal.prerequisite_id%>" style="display: none;"> End</div>
       </div>
     <% end %>
