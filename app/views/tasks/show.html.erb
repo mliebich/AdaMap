@@ -1,19 +1,14 @@
-<div class="flex justify-center">
-  <div class="p-6 center max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-    <%= render @task %>
-    <%= form_tag(user_goals_path(current_user)) do %>
-      <%= hidden_field_tag('task_id', @task.id) %>
-      <%= button_tag(class: 'btn', type: 'submit', disabled: @disable_add_goal) do %>
-        Add
-      <% end %>
-    <% end %>
-    <div class="flex items-center">
-      <%= link_to 'Edit this task', edit_task_path(@task), class: "btn" %>
-      <%= button_to 'Destroy this task', task_path(@task), method: :delete, class: "btn" %>
-      <%= link_to 'Back to tasks', tasks_path, class: "btn" %>
+<%= turbo_frame_tag "modal" do %>
+  <div class="fixed top-12 right-0 left-0 z-50 flex justify-center"  data-controller="modal" data-modal-allow-background-close="false" data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard">
+    <div class="max-h-screen w-full max-w-lg relative">
+      <div class="m-1 bg-white rounded shadow">
+        <div class="p-8">
+          <%= render @task %>
+          <div class="flex justify-end items-center flex-wrap mt-6">
+            <button class="btn-small" data-action="click->modal#close">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

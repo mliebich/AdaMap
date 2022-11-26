@@ -4,13 +4,15 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 </div>
-<div class="container my-12 mx-auto px-4 md:px-12 overflow-hidden">
+<div class="container my-12 mx-auto px-4 md:px-12">
   <div class="flex mb-4">
     <% @goals = current_user.goals %>
     <% @goals.each_with_index do |goal, index| %>
       <div data-controller="learningmap" data-learningmap-id-value="<%=goal.id%>" data-learningmap-pre-value="<%=goal.prerequisite_id%>" class="h-96 translate">
-        <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class="card "><b><%=goal.title%></b> <%=goal.id%></div>
-        <div data-learningmap-target="end" pre="<%goal.prerequisite_id%>" style="display: none;"> End</div>
+        <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class="card "><b><%=goal.title%></b> <%=goal.id%>
+          <%= link_to "Show this task", goal, class: "btn-small", data: { turbo_frame: 'modal' } %>
+        </div>
+        <div data-learningmap-target="end" pre="<%goal.prerequisite_id%>" style="display: none;">End</div>
       </div>
     <% end %>
   </div>
