@@ -3,17 +3,18 @@
     <strong class="block font-medium mb-1">Title:</strong>
     <%= task.title %>
   </p>
-
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Content:</strong>
+    <%= task.goal %>
+  </p>
   <p class="my-5">
     <strong class="block font-medium mb-1">Content:</strong>
     <%= task.content %>
   </p>
-
   <p class="my-5">
     <strong class="block font-medium mb-1">Status:</strong>
     <%= task.status %>
   </p>
-
   <% if action_name != "show" %>
     <%= link_to "Show this task", task, class: "btn" %>
     <%= link_to 'Edit this task', edit_task_path(task), class: "btn" %>

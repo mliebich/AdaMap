@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :goals
   end
 
+  resource :embed, only: :update
+
   resources :nodes
   resources :tasks
 
@@ -26,9 +28,9 @@ Rails.application.routes.draw do
   resources :confirmations, only: [:create, :edit, :new], param: :confirmation_token
 
   resources :active_sessions, only: [:destroy] do
-      collection do
-        delete "destroy_all"
-      end
+    collection do
+      delete "destroy_all"
     end
+  end
 
 end

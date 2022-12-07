@@ -1,10 +1,9 @@
-<h1 class="title">My goals</h1>
+<h1 class="title">My journey progress</h1>
 <% if notice.present? %>
   <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
 <% end %>
 <div class="container my-12 mx-auto px-4 md:px-12 grid grid-cols-4 gap-4 p-4">
-    <% @goals.each do |goal| %>
-      <%= render "goal_card", title: goal.title, id: goal.id, content: goal.content %>
-    <% end %>
+  <% @goals.each do |goal| %>
+    <%= render "goal_card", title: goal.title, id: goal.id, content: goal.content.to_plain_text %>
+  <% end %>
 </div>
-

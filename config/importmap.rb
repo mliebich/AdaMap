@@ -15,3 +15,4 @@ pin "anim-event", to: "https://ga.jspm.io/npm:anim-event@1.0.17/anim-event.esm.j
 pin "cssprefix", to: "https://ga.jspm.io/npm:cssprefix@2.0.17/cssprefix.esm.js"
 pin "m-class-list", to: "https://ga.jspm.io/npm:m-class-list@1.1.10/m-class-list.esm.js"
 pin "pointer-event", to: "https://ga.jspm.io/npm:pointer-event@1.3.1/pointer-event.esm.js"
+pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@7.0.4/lib/assets/compiled/rails-ujs.js"

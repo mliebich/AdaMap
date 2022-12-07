@@ -5,7 +5,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all.with_rich_text_content
     console
   end
 
@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @user = current_user
-    @disable_add_goal = current_user.goals.exists?(@task.id)
+    #@disable_add_goal = current_user.goals.exists?(@task.id)
   end
 
   # GET /tasks/new
@@ -64,13 +64,13 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def task_params
-      params.require(:task).permit(:title, :content, :status, :prerequisite_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def task_params
+    params.require(:task).permit(:title, :content, :status, :prerequisite_id)
+  end
 end
