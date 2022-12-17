@@ -1,8 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import  LeaderLine  from "leader-line-new"
 
-console.log('nodes_controller');
-
 export default class extends Controller {
   static targets = ["start", "end"]
   static values = { id: Number }

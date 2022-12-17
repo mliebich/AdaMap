@@ -21,6 +21,11 @@
     transform: translateY(40%);
   }
 
+  iframe {
+    width: 560px;
+    height: 315px;
+  }
+
   .leader-line {
     z-index: -1;
   }

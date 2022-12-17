@@ -11,7 +11,7 @@ export default class extends Controller {
   }
 
   addTrixButton() {
-    const buttonHTML = '<button type="button" class="trix-button" data-trix-attribute="embed" data-trix-action="embed" title="Embed" tabindex="-1">Video</button>'
+    const buttonHTML = '<button type="button" class="trix-button" data-trix-attribute="embed" data-trix-action="embed" title="Embed" tabindex="-1">Embed</button>'
     const buttonGroup = this.element.toolbarElement.querySelector(".trix-button-group--block-tools")
     buttonGroup.insertAdjacentHTML("beforeend", buttonHTML)
   }
@@ -54,9 +54,7 @@ export default class extends Controller {
       if (content) {
         let _this = this
         let formData = new FormData()
-        console.log(content)
         formData.append("content", content)
-        console.log("I was here at the end of trix controller")
         Rails.ajax({
           type: 'PATCH',
           url: '/embed.json',

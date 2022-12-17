@@ -1,5 +1,6 @@
 class EmbedsController < ApplicationController
   def update
+    puts params
     embed = Embed.new(id: params[:content])
     content = ApplicationController.render(partial: 'embeds/embed',
                                            locals: { embed: embed },

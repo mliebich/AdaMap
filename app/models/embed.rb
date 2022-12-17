@@ -4,25 +4,24 @@ class Embed
   include GlobalID::Identification
   include ActionText::Attachable
 
+  require "oembed"
+
   attribute :id
 
   def self.find(id)
     new(id: id)
   end
 
-  def source
-    case
-    when id.include?('youtube.com/embed')
-      id
-    when id.include?('youtube.com/watch')
-      #https://www.youtube.com/watch?v=aqz-KE-bpKQ
-      params = Rack::Utils.parse_query(URI(id).query)
-      "https://www.youtube.com/embed/#{params['v']}"
-    when id.include?('vimeo.com')
-      param = id.split('/').last
-      "https://player.vimeo.com/video/#{param}"
-    else
-      id
-    end
+  def embedcode
+    oembed.html
+  end
+
+  def oembed
+    OEmbed::Providers.register_all
+    OEmbed::Providers.register_fallback(
+      OEmbed::ProviderDiscovery,
+      OEmbed::Providers::Noembed
+    )
+    OEmbed::Providers.get(id)
   end
 end
