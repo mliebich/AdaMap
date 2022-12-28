@@ -6,14 +6,14 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all.with_rich_text_content
-    console
   end
 
   # GET /tasks/1 or /tasks/1.json
   def show
     @task = Task.find(params[:id])
     @user = current_user
-    #@disable_add_goal = current_user.goals.exists?(@task.id)
+    @disable_add_goal = current_user.goals.exists?(@task.id)
+    console
   end
 
   # GET /tasks/new

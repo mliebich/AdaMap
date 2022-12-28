@@ -6,8 +6,8 @@ class GoalsController < ApplicationController
   def create
     goal = Task.find(params[:task_id])
     current_user.goals << goal
-    redirect_to goal_path(goal)
-    console
+    flash[:notice] = "Goal successfully added"
+    redirect_to account_learningmap_path
   end
 
   def destroy
