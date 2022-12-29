@@ -6,7 +6,7 @@
 </div>
 <div class="container my-12 mx-auto px-4 md:px-12">
   <div class="flex mb-4">
-    <% @goals = current_user.goals %>
+    <% @goals = current_user.tasks %>
     <% @goals.each_with_index do |goal, index| %>
       <div data-controller="learningmap" data-learningmap-id-value="<%=goal.id%>" data-learningmap-pre-value="<%=goal.prerequisite_id%>" class="h-96 translate">
         <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class="card "><b><%=goal.title%></b> <%=goal.id%>

@@ -12,12 +12,12 @@ class User < ApplicationRecord
   validates :unconfirmed_email, format: {with: URI::MailTo::EMAIL_REGEXP, allow_blank: true}
   validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}, presence: true, uniqueness: true
 
-  has_many :tasks
-  has_many :goals
+  has_many :task_progresses
+  has_many :tasks, through: :task_progresses
 
   has_many :active_sessions, dependent: :destroy
   # goals is just the name of the association (a user by nature has goals, not tasks :-))
-  has_and_belongs_to_many :goals, class_name: 'Task'
+  # has_and_belongs_to_many :goals
 
   def confirm!
     if unconfirmed_or_reconfirming?

@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @user = current_user
-    @disable_add_goal = current_user.goals.exists?(@task.id)
+    @disable_add_goal = current_user.tasks.exists?(@task.id)
     console
   end
 

@@ -5,14 +5,16 @@
       <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
     <% end %>
   <% end %>
-  <div class="flex flex-wrap">
-    <div class="block">
-      <%= form_with(model: task, class:"text-lg inline-block my-3 w-72") do |form| %>
-        <%= form.check_box :completed,
-                       class: "w-4 h-4 text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" %>
-        <%= task.title %>
-      <% end %>
-    </div>
+  <div class="flex flex-wrap" data-controller="tasks">
+    <%= form_with(model: task, class:"text-lg inline-block my-3 w-72") do |form| %>
+      <%= form.check_box :completed,
+                       data: {
+                         id: task.id,
+                         action: "tasks#toggle"
+                       },
+                       class: "mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500" %>
+      <%= task.title %>
+    <% end %>
   </div>
   <p class="my-5">
     <strong class="block font-medium mb-1"><%= task.title %></strong>
@@ -21,4 +23,7 @@
     <strong class="block font-medium mb-1">Content:</strong>
     <%= task.content %>
   </p>
+  <div class="flex justify-end items-center flex-wrap mt-6">
+    <button class="btn-small" data-action="click->modal#close">Close</button>
+  </div>
 </div>

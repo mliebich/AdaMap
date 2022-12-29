@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
   has_rich_text :content
-  has_and_belongs_to_many :users
+  has_many :task_progresses
+  has_many :users, through: :task_progresses
 end

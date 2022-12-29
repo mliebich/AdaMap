@@ -1,11 +1,11 @@
 class GoalsController < ApplicationController
   def index
-    @goals = Goal.all
+    @goals = Task.all
 
   end
   def create
     goal = Task.find(params[:task_id])
-    current_user.goals << goal
+    current_user.tasks << goal
     flash[:notice] = "Goal successfully added"
     redirect_to account_learningmap_path
   end
