@@ -1,3 +1,5 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "stimulus-checkbox-select-all": "^5.2.0"
+  }
 }
