@@ -12,13 +12,12 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @user = current_user
-    @disable_add_goal = current_user.tasks.exists?(@task.id)
-    if current_user.tasks.exists?
+    @goal_added = current_user.tasks.exists?(@task.id)
+    if current_user.tasks.exists?(@task.id) == true
       @done = current_user.task_progresses.find_by(task_id:@task.id).done
     end
-    @style = "bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900"
-    @style2 = "bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900"
-    console
+    @style = "bg-white"
+    @style2 = "bg-blue"
   end
 
   # GET /tasks/new
@@ -72,6 +71,7 @@ class TasksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_task
     @task = Task.find(params[:id])
+    console
   end
 
   # Only allow a list of trusted parameters through.

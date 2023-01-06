@@ -20,6 +20,7 @@ class GoalsController < ApplicationController
   def setstatus
     goal = current_user.task_progresses.find_by(task_id:params[:task_id])
     goal.update(done: 1)
+    console
   end
 
 end

@@ -17,11 +17,12 @@
     <%= form.label :content %>
     <%= form.rich_text_area :content, data: { controller: "trix" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
-  <div class="my-5">
+  <div class="my-5" >
     <%= form.label :prerequisite_id %>
-    <%= form.number_field :prerequisite_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <br>
+    <%= form.collection_select :prerequisite_id, Task.all, :id, :title, class:"relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" %>
   </div>
-  <div class="inline">
+  <div class="inline_">
     <%= form.submit class: "btn" %>
   </div>
 <% end %>

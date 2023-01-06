@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <nav class="bg-yellow-300 shadow-lg border-yellow-200 px-2 sm:px-4 py-2.5 rounded dark:bg-yellow-500 flex flex-wrap">
-    <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div class="container flex flex-wrap justify-between items-center mx-auto dark:bg-gray-800">
       <a href="https://glong.ch" class="flex items-center">
         <%= image_tag "logo.svg" %>
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Glong</span>
@@ -58,7 +58,7 @@
       </div>
     </div>
   </nav>
-  <body>
+  <body class="dark:bg-gray-800">
     <main style="width: 1200px; margin: 10px auto;">
       <%= yield %>
       <%= turbo_frame_tag "modal" %>

@@ -7,5 +7,6 @@ class AccountController < ApplicationController
 
   def goals
     @goals = current_user.tasks
+    console
   end
 end

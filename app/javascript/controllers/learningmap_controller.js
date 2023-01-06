@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import  LeaderLine  from "leader-line-new"
 import  PlainDraggable from "plain-draggable"
 
+
 export default class extends Controller {
   static targets = ["start", "end"]
   static values = { id: Number, pre: Number }
@@ -19,12 +20,12 @@ export default class extends Controller {
       size: 3,
       dash: { animation: true },
       line: { path: 'fluid'},
-      startSocket: 'top',
+      startSocket: 'bottom',
       startPlug: 'disc',
       startPlugSize: 3.5,
       startPlugColor: '#0d9488',
-      endPlug: 'hand',
-      endPlugColor: '#0ea5e9',
+      endPlug: 'arrow2',
+      endPlugColor: '#f23029',
       endPlugSize: 1.25,
       gradient: true
     });

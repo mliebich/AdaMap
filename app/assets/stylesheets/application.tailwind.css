@@ -21,6 +21,11 @@
     transform: translateY(40%);
   }
 
+  a {
+    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
+  }
+
+
   iframe {
     width: 560px;
     height: 315px;
