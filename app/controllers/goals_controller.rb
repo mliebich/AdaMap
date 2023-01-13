@@ -18,9 +18,10 @@ class GoalsController < ApplicationController
   end
 
   def setstatus
-    goal = current_user.task_progresses.find_by(task_id:params[:task_id])
-    goal.update(done: 1)
-    console
+    goal = current_user.task_progresses.find_by_task_id(params[:id])
+    goal.done = params[:completed]
+    goal.save!
+    render json: { message: "Success" }
   end
 
 end

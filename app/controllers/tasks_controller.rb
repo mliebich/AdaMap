@@ -13,6 +13,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @user = current_user
     @goal_added = current_user.tasks.exists?(@task.id)
+    @goal_finished = current_user.task_progresses.find_by_task_id(@task.id).done
     if current_user.tasks.exists?(@task.id) == true
       @done = current_user.task_progresses.find_by(task_id:@task.id).done
     end

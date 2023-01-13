@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :nodes
   resources :tasks
 
+
   post "sign_up", to: "users#create"
   get "sign_up", to: "users#new"
   get "sign_out", to: "tasks#index"
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   get "account/tasks", to: "account#tasks"
   get "account/learningmap", to: "account#learningmap"
   post "goal", to: "goals#create"
-  post "setstatus", to: "goals#setstatus"
+  post "goals/:id/setstatus", to: "goals#setstatus"
   delete "goal", to: "goals#destroy"
   delete "account", to: "users#destroy"
 

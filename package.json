@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "stimulus-checkbox-select-all": "^5.2.0",
-    "stimulus-confetti": "^1.0.1"
+    "canvas-confetti": "^1.6.0",
+    "stimulus-checkbox-select-all": "^5.2.0"
   }
 }

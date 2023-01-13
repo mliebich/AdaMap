@@ -1,0 +1,15 @@
+ /opt/homebrew/bin/gmkdir -p '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/lib'
+ /bin/sh ./libtool   --mode=install /opt/homebrew/bin/ginstall -c   libsqlite3.la '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/lib'
+libtool: install: /opt/homebrew/bin/ginstall -c .libs/libsqlite3.lai /Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/lib/libsqlite3.la
+libtool: install: /opt/homebrew/bin/ginstall -c .libs/libsqlite3.a /Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/lib/libsqlite3.a
+libtool: install: chmod 644 /Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/lib/libsqlite3.a
+libtool: install: ranlib /Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/lib/libsqlite3.a
+ /opt/homebrew/bin/gmkdir -p '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/bin'
+  /bin/sh ./libtool   --mode=install /opt/homebrew/bin/ginstall -c sqlite3 '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/bin'
+libtool: install: /opt/homebrew/bin/ginstall -c sqlite3 /Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/bin/sqlite3
+ /opt/homebrew/bin/gmkdir -p '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/include'
+ /opt/homebrew/bin/ginstall -c -m 644 sqlite3.h sqlite3ext.h '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/include'
+ /opt/homebrew/bin/gmkdir -p '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/share/man/man1'
+ /opt/homebrew/bin/ginstall -c -m 644 sqlite3.1 '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/share/man/man1'
+ /opt/homebrew/bin/gmkdir -p '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/lib/pkgconfig'
+ /opt/homebrew/bin/ginstall -c -m 644 sqlite3.pc '/Users/michael/Documents/Masterarbeit/glong/vendor/bundle/ruby/3.2.0/gems/sqlite3-1.5.4/ports/arm64-apple-darwin21.3.0/sqlite3/3.40.0/lib/pkgconfig'

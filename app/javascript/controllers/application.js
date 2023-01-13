@@ -4,10 +4,6 @@ const application = Application.start()
 
 // Configure Stimulus development experience
 application.debug = false
-
-
-import { Confetti } from "stimulus-confetti"
-	application.register('confetti', Confetti)
 	
 import { Alert, Autosave, Dropdown, Modal, Tabs, Popover, Toggle, Slideover } from "tailwindcss-stimulus-components"
 	application.register('alert', Alert)

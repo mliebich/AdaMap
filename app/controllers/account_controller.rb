@@ -9,4 +9,5 @@ class AccountController < ApplicationController
     @goals = current_user.tasks
     console
   end
+
 end
