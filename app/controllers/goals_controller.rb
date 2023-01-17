@@ -21,7 +21,5 @@ class GoalsController < ApplicationController
     goal = current_user.task_progresses.find_by_task_id(params[:id])
     goal.done = params[:completed]
     goal.save!
-    render json: { message: "Success" }
   end
-
 end

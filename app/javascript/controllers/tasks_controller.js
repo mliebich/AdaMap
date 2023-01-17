@@ -57,4 +57,7 @@ export default class extends Controller {
             body: JSON.stringify({ completed: e.target.checked }) // body data type must match "Content-Type" header
         })
     }
+    refresh() {
+        location.reload();
+    }
 }
