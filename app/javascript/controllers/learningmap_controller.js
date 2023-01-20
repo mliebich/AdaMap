@@ -27,12 +27,9 @@ export default class extends Controller {
       endPlug: 'arrow2',
       endPlugColor: '#f23029',
       endPlugSize: 1.25,
-      gradient: true
+      gradient: true,
     });
-    new PlainDraggable(start, {onMove: line.position()});
-    new PlainDraggable(end, {onMove: line.position()});
+    new PlainDraggable(start, {onMove: function(){line.position();}});
+    new PlainDraggable(end, {onMove: function(){line.position();}});
   }
-  move(){
-    window.dispatchEvent(new Event('resize'));
-  };
 }

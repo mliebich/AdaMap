@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "layers" do %>
+  <div class="fixed top-12 right-0 left-0 z-50 flex justify-center"  data-controller="tasks modal"data-modal-target="container" data-action="click->modal#closeBackground">
+    <div class="max-h-screen max-w-lg relative flex">
+      <div class="m-1 bg-white rounded shadow">
+        <div class="p-8">
+          <div class="tariffCards">
+            <div class="economy">
+              <h3>Grundlagen</h3>
+            </div>
+            <div class="premiumeconomy">
+              <h3>Erweitert</h3>
+            </div>
+            <div class="business">
+              <h3>Fortgeschritten</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

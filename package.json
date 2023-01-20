@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "canvas-confetti": "^1.6.0",
+    "leader-line-new": "^1.1.9",
     "stimulus-checkbox-select-all": "^5.2.0"
   }
 }
