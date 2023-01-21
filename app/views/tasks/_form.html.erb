@@ -20,7 +20,7 @@
   <div class="my-5" >
     <%= form.label :prerequisite_id %>
     <br>
-    <%= form.collection_select :prerequisite_id, Task.all, :id, :title, class:"relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" %>
+    <%= form.collection_select :prerequisite_id, Task.all, :id, :title, {:include_blank => false}, :multiple => true,  class: "relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" %>
   </div>
   <div class="inline_">
     <%= form.submit class: "btn" %>
