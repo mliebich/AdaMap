@@ -20,9 +20,14 @@
   <div class="my-5" >
     <%= form.label :prerequisite_id %>
     <br>
-    <%= form.collection_select :prerequisite_id, Task.all, :id, :title, {:include_blank => false}, :multiple => true,  class: "relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" %>
+    <%= form.collection_select :prerequisite_id, Task.all, :id, :title, {:include_blank => false}, :multiple => true,  class: "block shadow rounded-md border border-gray-200 outline-none px-2 py-2 mt-2 w-full" %>
+  </div>
+  <div class="my-5 w-19" >
+    <%= form.label :level %>
+    <br>
+    <%= form.select :level, Task.levels.keys, {:include_blank => false}, class: "block shadow rounded-md border border-gray-200 outline-none px-2 py-2 mt-2 w-full" %>
   </div>
   <div class="inline_">
-    <%= form.submit class: "btn" %>
+    <%= form.submit class: "btn-small" %>
   </div>
 <% end %>

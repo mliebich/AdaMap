@@ -12,11 +12,21 @@
     @apply py-2 px-3 text-xs font-medium  mr-2 mb-2 rounded-lg text-yellow-500 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900;
   }
   .title{
-    @apply text-6xl font-normal leading-normal mt-0 mb-2 text-yellow-500;
+    @apply text-4xl font-normal leading-normal mt-0 mb-2 text-yellow-500;
   }
   .card {
     @apply block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700;
   }
+  .basics {
+   @apply block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md shadow-emerald-600 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700;
+   }
+  .research {
+   @apply opacity-25 block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md shadow-amber-500 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700;
+  }
+  .product {
+   @apply block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md shadow-pink-600 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700;
+  }
+
   div.translate:nth-of-type(2n+1) {
     transform: translateY(40%);
   }

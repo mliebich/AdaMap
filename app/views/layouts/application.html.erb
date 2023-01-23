@@ -9,21 +9,19 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <nav class="bg-yellow-300 shadow-lg border-yellow-200 px-2 sm:px-4 py-2.5 rounded dark:bg-yellow-500 flex flex-wrap">
+  <nav class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white">
     <div class="container flex flex-wrap justify-between items-center mx-auto dark:bg-gray-800">
       <a href="https://glong.ch" class="flex items-center">
         <%= image_tag "logo.svg" %>
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Glong</span>
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Adamap</span>
       </a>
       <div class="flex items-center md:order-2">
-        <div class="inline-block text-sm px-4 py-2 leading-none rounded no-underline text-gray hover:text-gray-900 hover:bg-white mt-4 lg:mt-0">
+        <div class="">
           <div class="relative" data-controller="dropdown">
             <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
-              <span class="appearance-none flex items-center inline-block text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" class="h-4 w-4">
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
-                </svg>
-              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
             </div>
             <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden">
               <div class="bg-white shadow rounded border overflow-hidden">
@@ -41,19 +39,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
-        <div class="max-w-lg w-full lg:max-w-xs">
-          <label for="search" class="sr-only">Search </label>
-          <form methode="get" action="#" class="relative z-50">
-            <button type="submit" id="searchsubmit" class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-              </svg>
-            </button>
-            <input type="text" name="s" id="s" class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-yellow-200 text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-white focus:text-gray-900 sm:text-sm transition duration-150 ease-in-out" placeholder="Search">
-          </form>
         </div>
       </div>
     </div>

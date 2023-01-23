@@ -5,7 +5,8 @@ class Task < ApplicationRecord
 
   before_validation :sanitize_prerequisite_id
 
-  scope :no_pre, -> { where('prerequisite_id is null') }
+  enum level: { basics: 0, research: 1, product: 2 }, _prefix: true
+
 
   def no_pre?
     prerequisite_id.empty?

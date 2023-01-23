@@ -8,9 +8,11 @@
   <div class="flex mb-4">
     <% @goals = current_user.tasks %>
     <% @goals.each_with_index do |goal, index| %>
-      <% if current_user.task_progresses.find_by_task_id(goal.prerequisite_id).present? %>
+      <% if current_user.task_progresses.find_by_task_id(goal.prerequisite_id).present? and current_user.task_progresses.find_by_task_id(goal.prerequisite_id).done? %>
         <div data-controller="learningmap" data-learningmap-id-value="<%=goal.id%>" data-learningmap-pre-value="<%=goal.prerequisite_id%>" class="h-96 translate">
-          <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class="card "><b><%=goal.title%></b> <%=goal.id%>
+          <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class = "<%= goal.level %>">
+            <center><b><%=goal.title%></b></center>
+            <br>
             <%= link_to "Show this task", goal, class: "btn-small", data: { turbo_frame: 'modal' } %>
           </div>
           <div data-learningmap-target="end" pre="<%goal.prerequisite_id%>" style="display: none;">End</div>
