@@ -2,12 +2,11 @@ class AccountController < ApplicationController
 
   def learningmap
     @goals = current_user.tasks
-    console
+    @active_layer = params[:active_layer]
   end
 
   def goals
     @goals = current_user.tasks
-    console
   end
 
 end
