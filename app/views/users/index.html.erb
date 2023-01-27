@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="container mx-auto">
   <h1 class="title">Users</h1>
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
@@ -26,7 +26,7 @@
             <td class="py-4 px-6"><%= user.name %></td>
             <td class="py-4 px-6">
               <div class="flex space-x-4">
-                <div><%= link_to 'Edit', edit_user_path(user) %></div>
+                <div><%= link_to 'Edit', edit_user_path(user), class: "btn-small" %></div>
               </div>
             </tr>
           <% end %>

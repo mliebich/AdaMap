@@ -1,34 +1,34 @@
-<div class="w-full">
+<div class="container mx-auto">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
   <h1 class="title">Nodes</h1>
-  <div class="flex space-x-4"><%= link_to 'Create node', new_node_path, class: "btn" %></div>
+  <div class="flex space-x-4"><%= link_to 'Create node', new_node_path, class: "btn-small" %></div>
   <div class="overflow-auto hidden md:block shadow-md sm:rounded-lg border-2">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                  <th scope="col" class="py-3 px-6">
-                      Title
-                  </th>
-                  <th scope="col" class="py-3 px-6">
-                      Description
-                  </th>
-                  <th scope="col" class="py-3 px-6">
-                      Action
-                 </th>
-              </tr>
-          </thead>
-          <tbody>
-            <% @nodes = Node.all %>
-            <% @nodes.each do |node| %>
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="py-4 px-6"><%= node.title %></td>
-                <td class="py-4 px-6"><%= node.status %></td>
-                <td class="py-4 px-6"><%= link_to 'Edit', edit_node_path(node), class: "btn-small"%><%= link_to 'Show', node_path(node), class: "btn-small" %></td>
-              </tr>
-            <% end %>
-          </tbody>
-      </table>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            Title
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Description
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @nodes = Node.all %>
+        <% @nodes.each do |node| %>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <td class="py-4 px-6"><%= node.title %></td>
+            <td class="py-4 px-6"><%= node.status %></td>
+            <td class="py-4 px-6"><%= link_to 'Edit', edit_node_path(node), class: "btn-small"%><%= link_to 'Show', node_path(node), class: "btn-small" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

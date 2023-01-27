@@ -10,12 +10,19 @@
     <div class="flex justify-center mb-4">
       <% @goals = current_user.tasks %>
       <% @goals.each_with_index do |goal, index| %>
-        <% if current_user.task_progresses.find_by_task_id(goal.prerequisite_id).present? and current_user.task_progresses.find_by_task_id(goal.prerequisite_id).done? %>
+        <% if current_user.task_progresses.find_by_task_id(goal.prerequisite_id).present? and current_user.task_progresses.find_by_task_id(goal.prerequisite_id).done? or current_user.task_progresses.find_by_task_id(goal.id).passed? %>
           <div data-controller="learningmap" data-learningmap-id-value="<%=goal.id%>" data-learningmap-pre-value="<%=goal.prerequisite_id%>" class="h-96 translate">
             <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class = "<%= goal.level %> <% if goal.level == @active_layer %>opacity-100<%end%>">
-              <center><b><%=goal.title%></b></center>
+              <% if current_user.task_progresses.find_by_task_id(goal.id).done? && current_user.task_progresses.find_by_task_id(goal.id).passed? %>
+                <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-1 rounded dark:bg-green-900 dark:text-green-300 top-50">Done 🎉</span>
+              <% elsif current_user.task_progresses.find_by_task_id(goal.id).done?%>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-1 rounded dark:bg-yellow-900 dark:text-yellow-300">In review</span>
+              <% else %>
+                <span class="animate-pulse">👋</span>
+              <% end %>
+              <center class="p-5"><b><%=goal.title%></b></center>
               <br>
-              <%= link_to "Show this task", goal, class: "btn-small", data: { turbo_frame: 'modal' } %>
+              <center><%= link_to "Show this task", goal, class: "btn-small", data: { turbo_frame: 'modal' } %></center>
             </div>
             <div data-learningmap-target="end" pre="<%goal.prerequisite_id%>" style="display: none;">End</div>
           </div>

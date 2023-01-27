@@ -1,8 +1,8 @@
-<div class="w-full">
+<div class="container mx-auto">
   <h1 class="title">Tasks</h1>
   <div class="flex space-x-4"><%= link_to 'Create task', new_task_path, class: "btn-small dark:bg-gray-800 dark:text-gray-00" %></div>
   <div class="overflow-auto hidden md:block shadow-md sm:rounded-lg border-2">
-    <table class="w-full text-sm text-left text-gray-500 dark:bg-gray-800 dark:text-gray-400">
+    <table class="w-full text-sm text-left text-gray-500 dark:bg-gray-800 dark:text-gray-400 ">
       <% if notice.present? %>
         <p data-controller="autohide" data-autohide-class-value="opacity-0" data-autohide-delay-value="1000" class="py-1 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block transition-all ease-in-out duration-500" id="notice"><%= notice %></p>
       <% end %>
