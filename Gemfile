@@ -20,6 +20,10 @@ gem 'bcrypt', '~> 3.1.11'
 
 gem 'pg'
 
+# Authorization gem
+
+gem 'rolify'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

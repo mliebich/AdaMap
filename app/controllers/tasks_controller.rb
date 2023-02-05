@@ -4,7 +4,11 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all.with_rich_text_content
+    if current_user.has_role? :admin
+      @tasks = Task.all.with_rich_text_content
+    else
+      redirect_to account_goals_path, alert: "Not authorized"
+    end
     console
   end
 

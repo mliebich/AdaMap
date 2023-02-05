@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  rolify
+
   CONFIRMATION_TOKEN_EXPIRATION = 10.minutes
   PASSWORD_RESET_TOKEN_EXPIRATION = 10.minutes
 
@@ -18,6 +20,17 @@ class User < ApplicationRecord
   has_many :active_sessions, dependent: :destroy
   # goals is just the name of the association (a user by nature has goals, not tasks :-))
   # has_and_belongs_to_many :goals
+
+  # start rolify
+
+  after_create :assign_default_role
+
+  validate :must_have_a_role, on: :update
+
+  def assign_default_role
+    self.add_role(:student) if self.roles.blank?
+  end
+  # end rolify
 
   def confirm!
     if unconfirmed_or_reconfirming?
@@ -90,6 +103,12 @@ class User < ApplicationRecord
   end
 
   private
+
+  def must_have_a_role
+    unless roles.any?
+      assign_default_role
+    end
+  end
 
   def downcase_unconfirmed_email
     return if unconfirmed_email.nil?

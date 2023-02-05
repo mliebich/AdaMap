@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
+  include RolesHelper
   before_action :authenticate_user!, only: %i[ destroy edit index]
+  before_action :ensure_admin, only: %i[edit]
   before_action :set_user, only: %i[ destroy ]
 
   def index
-    @users = User.all
+    if current_user.has_role? :admin
+      @users = User.all
+    else
+      redirect_to account_goals_path, alert: 'Not authorized'
+    end
     console
   end
 
@@ -27,6 +33,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    if current_user.has_role? :admin
+      set_user
+    end
     @active_sessions = @user.active_sessions.order(created_at: :desc)
   end
 
@@ -60,6 +69,6 @@ class UsersController < ApplicationController
   end
 
   def update_user_params
-    params.require(:user).permit(:name, :email, :current_password, :password, :password_confirmation, :unconfirmed_email)
+    params.require(:user).permit(:name, :email, {role_ids: []}, :current_password, :password, :password_confirmation, :unconfirmed_email)
   end
 end
