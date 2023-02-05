@@ -7,10 +7,10 @@
     <% end %>
   </div>
   <div class="container my-12 mx-auto px-4 md:px-12">
-    <div class="flex justify-center mb-4">
+    <div class="flex flex-row gap-4 flex-wrap justify-center">
       <% @goals = current_user.tasks %>
       <% @goals.each_with_index do |goal, index| %>
-        <% if current_user.task_progresses.find_by_task_id(goal.prerequisite_id).present? and current_user.task_progresses.find_by_task_id(goal.prerequisite_id).done? or current_user.task_progresses.find_by_task_id(goal.id).passed? %>
+        <% if current_user.task_progresses.find_by_task_id(goal.prerequisite_id).present? and current_user.task_progresses.find_by_task_id(goal.prerequisite_id).done? or current_user.task_progresses.find_by_task_id(goal.id).passed? or goal.prerequisite_id.empty? %>
           <div data-controller="learningmap" data-learningmap-id-value="<%=goal.id%>" data-learningmap-pre-value="<%=goal.prerequisite_id%>" class="h-96 translate">
             <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class = "<%= goal.level %> <% if goal.level == @active_layer %>opacity-100<%end%>">
               <% if current_user.task_progresses.find_by_task_id(goal.id).done? && current_user.task_progresses.find_by_task_id(goal.id).passed? %>

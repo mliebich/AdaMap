@@ -1,9 +1,8 @@
-<%= form_with(model: user, class: "contents") do |form| %>
+<%= form_with model: @user, url: account_path, method: :put do |form| %>
+  <%= render partial: "shared/form_errors", locals: { object: form.object } %>
   <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email %>
   </div>
-  <div class="inline">
-    <%= form.submit class: "btn-small" %>
-  </div>
+  <%= form.submit class:"btn-small cursor-pointer" %>
 <% end %>

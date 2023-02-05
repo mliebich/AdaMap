@@ -12,8 +12,8 @@ class User < ApplicationRecord
   validates :unconfirmed_email, format: {with: URI::MailTo::EMAIL_REGEXP, allow_blank: true}
   validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}, presence: true, uniqueness: true
 
-  has_many :task_progresses
-  has_many :tasks, through: :task_progresses
+  has_many :task_progresses, dependent: :destroy
+  has_many :tasks, through: :task_progresses, dependent: :destroy
 
   has_many :active_sessions, dependent: :destroy
   # goals is just the name of the association (a user by nature has goals, not tasks :-))

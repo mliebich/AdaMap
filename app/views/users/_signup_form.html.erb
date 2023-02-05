@@ -1,0 +1,18 @@
+<%= form_with url: sign_up_path, model: @user, builder: TailwindFormBuilder, class: "mb-4 md:flex md:flex-wrap md:justify-between" do |form| %>
+  <%= render partial: "shared/form_errors", locals: { object: form.object } %>
+  <div class="relative z-0 mb-6 w-full group">
+    <%= form.label :email %>
+    <%= form.email_field :email, required: true%>
+  </div>
+  <div class="relative z-0 mb-6 w-full group">
+    <%= form.label :password %>
+    <%= form.password_field :password, required: true %>
+  </div>
+  <div class="relative z-0 mb-6 w-full group">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, required: true %>
+  </div>
+  <div class="inline_">
+    <%= form.submit "Sign Up", class:"btn-small cursor-pointer"%>
+  </div>
+<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Glong</title>
+    <title>AdaMap</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,7 +13,7 @@
     <div class="container flex flex-wrap justify-between items-center mx-auto dark:bg-gray-800">
       <a href="https://glong.ch" class="flex items-center">
         <%= image_tag "logo.svg" %>
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Glong</span>
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">AdaMap</span>
       </a>
       <div class="flex items-center md:order-2">
         <div class="relative" data-controller="dropdown">
@@ -22,7 +22,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </div>
-          <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden">
+          <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden z-10 text-sm">
             <div class="bg-white shadow rounded border overflow-hidden">
               <%if user_logged_in?%>
                 <%= link_to 'Account', account_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>

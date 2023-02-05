@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   has_rich_text :content
-  has_many :task_progresses
+  has_many :task_progresses, dependent: :destroy
   has_many :users, through: :task_progresses
 
   before_validation :sanitize_prerequisite_id

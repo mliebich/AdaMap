@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :destroy, :update]
-  before_action :redirect_if_authenticated, only: [:create, :new]
+  before_action :authenticate_user!, only: %i[ destroy edit index]
+  before_action :set_user, only: %i[ destroy ]
 
   def index
     @users = User.all
@@ -18,9 +18,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
-    reset_session
-    redirect_to root_path, notice: "Your account has been deleted."
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to user_url, notice: "User was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   def edit
@@ -35,30 +37,29 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @active_sessions = @user.active_sessions.order(created_at: :desc)
-    if @user.authenticate(params[:user][:current_password])
+    respond_to do |format|
       if @user.update(update_user_params)
-        if params[:user][:unconfirmed_email].present?
-          @user.send_confirmation_email!
-          redirect_to root_path, notice: "Check your email for confirmation instructions."
-        else
-          redirect_to root_path, notice: "Account updated."
-        end
+        format.html { redirect_to users_path, notice: "User was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
       else
-        render :edit, status: :unprocessable_entity
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    else
-      flash.now[:error] = "Incorrect password"
-      render :edit, status: :unprocessable_entity
     end
   end
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+    console
+  end
+
   def create_user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end
 
   def update_user_params
-    params.require(:user).permit(:current_password, :password, :password_confirmation, :unconfirmed_email)
+    params.require(:user).permit(:name, :email, :current_password, :password, :password_confirmation, :unconfirmed_email)
   end
 end

@@ -1,4 +1,5 @@
 class NodesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_node, only: %i[ show edit update destroy ]
 
   # GET /nodes or /nodes.json
@@ -59,13 +60,13 @@ class NodesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_node
-      @node = Node.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_node
+    @node = Node.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def node_params
-      params.require(:node).permit(:title, :description, :image_url, :status, :level)
-    end
+  # Only allow a list of trusted parameters through.
+  def node_params
+    params.require(:node).permit(:title, :description, :image_url, :status, :level)
+  end
 end

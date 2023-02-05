@@ -2,7 +2,11 @@ class AccountController < ApplicationController
 
   def learningmap
     @goals = current_user.tasks
-    @active_layer = params[:active_layer]
+    if params[:active_layer] == nil
+      @active_layer = "basics"
+    else
+      @active_layer = params[:active_layer]
+    end
     console
   end
 

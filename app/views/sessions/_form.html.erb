@@ -11,5 +11,7 @@
     <%= form.label :remember_me%>
     <%= form.check_box :remember_me%>
   </div>
-  <%= form.submit "Log in", class:"btn-small cursor-pointer"%>
+  <%= form.submit "Sign in", class:"btn-small cursor-pointer"%>
+  <br>
+  <%= link_to "Sign up", sign_up_path,  class:"btn-small cursor-pointer"%>
 <% end %>

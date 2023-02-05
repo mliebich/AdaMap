@@ -1,4 +1,5 @@
 class GoalsController < ApplicationController
+
   def index
     @goals = Task.all
   end
@@ -20,6 +21,12 @@ class GoalsController < ApplicationController
   def setstatus
     goal = current_user.task_progresses.find_by_task_id(params[:id])
     goal.done = params[:completed]
+    goal.save!
+  end
+
+  def setpassed
+    goal = current_user.task_progresses.find_by_task_id(params[:id])
+    goal.passed = 1
     goal.save!
   end
 end

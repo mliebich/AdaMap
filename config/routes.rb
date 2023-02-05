@@ -19,12 +19,15 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get "login", to: "sessions#new"
   put "account", to: "users#update"
+  get "account", to: "users#edit"
+  delete "account", to: "users#destroy"
   get "account/goals", to: "account#goals"
   get "account/tasks", to: "account#tasks"
   get "account/learningmap", to: "account#learningmap"
   post "goal", to: "goals#create"
   post "goals/:id/setstatus", to: "goals#setstatus"
   delete "goal", to: "goals#destroy"
+  delete "task", to: "tasks#destroy"
   delete "account", to: "users#destroy"
 
   resources :passwords, only: [:create, :edit, :new, :update], param: :password_reset_token
