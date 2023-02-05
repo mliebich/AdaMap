@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "account/learningmap", to: "account#learningmap"
   post "goal", to: "goals#create"
   post "goals/:id/setstatus", to: "goals#setstatus"
+  post "goals/:id/setpassed", to: "goals#setpassed"
   delete "goal", to: "goals#destroy"
   delete "task", to: "tasks#destroy"
   delete "account", to: "users#destroy"

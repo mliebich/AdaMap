@@ -1,11 +1,57 @@
-<div class="container my-12 mx-auto px-4 md:px-12">
-  <h1 class="title">My goals 🎯 </h1>
+<div class="container mx-auto">
+  <h1 class="title">My goals 🎯</h1>
   <% if notice.present? %>
     <p data-controller="autohide" data-autohide-class-value="opacity-0" data-autohide-delay-value="1000" class="py-1 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block transition-all ease-in-out duration-500" id="notice"><%= notice %></p>
   <% end %>
-  <div class="flex flex-row gap-4 flex-wrap justify-center">
-    <% @goals.each do |goal| %>
-      <%= render "goal_card", title: goal.title, id: goal.id, content: goal.content.to_plain_text %>
-    <% end %>
-  </div>
+  <div class="overflow-auto hidden md:block shadow-md sm:rounded-lg border-2">
+    <table class="w-full text-sm text-left text-gray-500 dark:bg-gray-800 dark:text-gray-400 ">
+      <% if notice.present? %>
+        <p data-controller="autohide" data-autohide-class-value="opacity-0" data-autohide-delay-value="1000" class="py-1 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block transition-all ease-in-out duration-500" id="notice"><%= notice %></p>
+      <% end %>
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            Title
+          </th>
+          <th scope="col" class="py-3 px-6">
+            ID
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Actions
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Done
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Reviewed
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @goals.each do |goal| %>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <td class="py-4 px-6"><%= goal.title %></td>
+            <td class="py-4 px-6"><%= goal.id %></td>
+            <td class="py-4 px-6"><%= link_to 'Show', goal, class: "btn-small",  data: { turbo_frame: 'modal' } %></td>
+            <td class="py-4 px-6"><% if current_user.task_progresses.find_by_task_id(goal.id).done? %>
+                <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Done</span></td>
+            <% end %>
+            <td class="py-4 px-6">
+              <div data-controller="tasks" class="space-x-4">
+                <% @goal_reviewed = current_user.task_progresses.find_by_task_id(goal.id).passed %>
+                <%= form_with(model: goal, class:"text-lg inline-block my-3 w-72") do |form| %>
+                  <%= form.check_box :completed,
+              data: {
+                id: goal.id,
+                action: "tasks#toggle2 "
+              }, class: "mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500",checked: @goal_reviewed %>
+                <% end %>
+              </div>
+            </td>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 </div>

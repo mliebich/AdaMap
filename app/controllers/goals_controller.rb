@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Task.all
+    @goal_reiewed = current_user.task_progresses.find_by_task_id(@task.id).passed
   end
 
   def create
@@ -26,7 +27,7 @@ class GoalsController < ApplicationController
 
   def setpassed
     goal = current_user.task_progresses.find_by_task_id(params[:id])
-    goal.passed = 1
+    goal.passed = params[:reviewed]
     goal.save!
   end
 end
