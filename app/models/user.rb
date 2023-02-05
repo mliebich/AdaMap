@@ -82,7 +82,7 @@ class User < ApplicationRecord
     end
   end
 
-  MAILER_FROM_EMAIL = "no-reply@glong.ch"
+  MAILER_FROM_EMAIL = "no-reply@adamap.ch"
 
   def send_confirmation_email!
     confirmation_token = generate_confirmation_token
