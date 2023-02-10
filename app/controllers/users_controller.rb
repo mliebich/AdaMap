@@ -34,9 +34,8 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     if current_user.has_role? :admin
-      set_user
+      @active_sessions = @user.active_sessions.order(created_at: :desc)
     end
-    @active_sessions = @user.active_sessions.order(created_at: :desc)
   end
 
   def new
