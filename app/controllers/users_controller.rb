@@ -6,11 +6,20 @@ class UsersController < ApplicationController
 
   def index
     if current_user.has_role? :admin
-      @users = User.all
+      if params[:query].present?
+        @users = User.where("email LIKE?", "#{params[:query]}%")
+      else
+        @users= User.all
+      end
     else
       redirect_to account_goals_path, alert: 'Not authorized'
     end
-    console
+
+    if turbo_frame_request?
+      render partial: "usertable", locals: { users: @users }
+    else
+      render :index
+    end
   end
 
   def create
