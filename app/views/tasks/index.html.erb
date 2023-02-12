@@ -23,7 +23,13 @@
         <% @tasks = Task.all %>
         <% @tasks.each do |task| %>
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="py-4 px-6"><%= task.title %></td>
+            <% if task.level == "basics" %>
+              <td class="py-4 px-6"><span class='basics-plain'><%= task.level %></span><%= task.title %></td>
+            <% elsif task.level =="product" %>
+              <td class="py-4 px-6"><span class='product-plain'><%= task.level %></span><%= task.title %></td>
+            <% else %>
+              <td class="py-4 px-6"><span class='research-plain'><%= task.level %></span><%= task.title %></td>
+            <% end %>
             <td class="py-4 px-6"><%= task.id %></td>
             <td class="py-4 px-6">
               <div class="flex space-x-4">

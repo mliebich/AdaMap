@@ -1,4 +1,5 @@
 class AccountController < ApplicationController
+  include RolesHelper
   before_action :authenticate_user!
 
   def learningmap
@@ -13,7 +14,19 @@ class AccountController < ApplicationController
 
   def goals
     @goals = current_user.tasks
+    @user = current_user
+    if current_user.has_role? :admin
+      set_user
+      @goals = @user.tasks
+    end
     console
+  end
+
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

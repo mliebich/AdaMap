@@ -1,5 +1,5 @@
 <div class="container mx-auto">
-  <h1 class="title">Users</h1>
+  <h1 class="title">Users (admin only)</h1>
   <%= form_with(url: users_path, method: :get, data: {
   controller: "search-form", turbo_frame: "users", turbo_action: "advance"}) do |form| %>
     <%= form.label :query, "Search users", class: "block mb-2" %>

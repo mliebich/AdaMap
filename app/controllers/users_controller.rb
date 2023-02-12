@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   include RolesHelper
   before_action :authenticate_user!, only: %i[ destroy edit index]
-  before_action :ensure_admin, only: %i[edit]
-  before_action :set_user, only: %i[ destroy ]
+  before_action :set_user, only: %i[ destroy edit]
 
   def index
     if current_user.has_role? :admin
@@ -17,8 +16,6 @@ class UsersController < ApplicationController
 
     if turbo_frame_request?
       render partial: "usertable", locals: { users: @users }
-    else
-      render :index
     end
   end
 
@@ -41,7 +38,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
     if current_user.has_role? :admin
       @active_sessions = @user.active_sessions.order(created_at: :desc)
     end

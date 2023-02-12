@@ -37,6 +37,11 @@ module Authentication
     cookies.permanent.encrypted[:remember_token] = { value: active_session.remember_token, httponly: true }
   end
 
+  def set_user
+    @user = User.find(params[:id])
+    console
+  end
+
   private
 
   def current_user

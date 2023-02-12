@@ -7,8 +7,7 @@
       <div class="flex space-x-4">
         <div><%= link_to 'Edit', edit_user_path(user), class: "btn-small" %></div>
         <div><%= link_to 'Destroy', user, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, class: "btn-small" %></div>
-        <div><%= link_to 'Set role', edit_user_path(user),  class: "btn-small" %></div>
-      </div>
-    </td>
-  </tr>
-</div>
+        <div><%= link_to 'Goals', account_goals_path(:id => user),  class: "btn-small" %></div>
+      </td>
+    </tr>
+  </div>

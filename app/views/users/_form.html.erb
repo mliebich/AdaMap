@@ -3,9 +3,22 @@
   <div class="my-5">
     <%= form.label :email, "Email" %>
     <%= form.email_field :email %>
-    <%= form.collection_check_boxes(:role_ids, Role.all, :id, :name) do |f| %>
-      <%= f.check_box class:"mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500" %>
-      <%= f.label %>
+    <% if current_user.has_role? :admin %>
+      <div class="box pt-10">
+        <%= form.collection_check_boxes(:role_ids, Role.all, :id, :name) do |form| %>
+          <%= form.check_box class:"mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500" %>
+          <%= form.label %>
+        <% end %>
+      </div>
+      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+      <div class="box" data-controller="tasks" data-userid="<%= @user.id %>">
+        <p class="font-bold text-2xl">Goals:</p>
+        <%= form.collection_check_boxes(:task_ids, Task.all, :id, :title) do |form| %>
+          <br>
+          <%= form.check_box class:"mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500", data: {  userid: @user.id, action: "tasks#addgoal"}%>
+          <%= form.label %>
+        <% end %>
+      </div>
     <% end %>
   </div>
   <%= form.submit class:"btn-small cursor-pointer" %>

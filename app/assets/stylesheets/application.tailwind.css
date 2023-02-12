@@ -29,6 +29,18 @@
    @apply block opacity-30 p-6 max-w-sm bg-white rounded-lg border border-pink-200 shadow-md shadow-pink-600 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700;
   }
 
+  .basics-plain{
+   @apply bg-emerald-100 text-emerald-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300;
+  }
+
+  .research-plain{
+    @apply bg-amber-100 text-amber-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300;
+  }
+
+  .product-plain{
+    @apply bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300;
+  }
+
   .layers {
     position: absolute;
     top: 35%;

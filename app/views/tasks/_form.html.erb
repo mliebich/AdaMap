@@ -10,9 +10,9 @@
   <div class="my-5" >
     <%= form.label :prerequisite_id, "Choose prerequisite with SHIFT/CMD + click" %>
     <br>
-    <%= form.collection_select :prerequisite_id, Task.all, :id, :title, {include_blank: false}, multiple: true,  class: "block shadow rounded-md border border-gray-200 outline-none px-2 py-2 mt-2 w-full" %>
+    <%= form.collection_select :prerequisite_id, Task.all, :id, :title, {include_blank: false}, multiple: true, size: Task.all.count,  class: "block shadow rounded-md border border-gray-200 outline-none px-2 py-2 mt-2 w-full" %>
   </div>
-  <div class="my-5 w-19" >
+  <div class="my-5" >
     <%= form.label :level %>
     <br>
     <%= form.select :level, Task.levels.keys, {:include_blank => false}, class: "block shadow rounded-md border border-gray-200 outline-none px-2 py-2 mt-2 w-full" %>

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post "goal", to: "goals#create"
   post "goals/:id/setstatus", to: "goals#setstatus"
   post "goals/:id/setpassed", to: "goals#setpassed"
+  post "goals/:id/addgoal", to: "goals#addgoal"
   delete "goal", to: "goals#destroy"
   delete "task", to: "tasks#destroy"
   delete "account", to: "users#destroy"
