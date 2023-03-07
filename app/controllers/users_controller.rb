@@ -65,7 +65,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-    console
   end
 
   def create_user_params

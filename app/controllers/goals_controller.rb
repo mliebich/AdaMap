@@ -3,7 +3,6 @@ class GoalsController < ApplicationController
   def index
     @goals = Task.all
     @goal_reviewed = current_user.task_progresses.find_by_task_id(@task.id).passed
-    console
   end
 
   def create
@@ -44,6 +43,5 @@ class GoalsController < ApplicationController
     goal.passed = params[:reviewed]
     goal.save!
     redirect_to account_goals_path
-    console
   end
 end

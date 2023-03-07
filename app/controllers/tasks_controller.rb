@@ -9,7 +9,6 @@ class TasksController < ApplicationController
     else
       redirect_to account_goals_path, alert: "Not authorized"
     end
-    console
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -73,7 +72,6 @@ class TasksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_task
     @task = Task.find(params[:id])
-    console
   end
 
   # Only allow a list of trusted parameters through.

@@ -9,7 +9,6 @@ class AccountController < ApplicationController
     else
       @active_layer = params[:active_layer]
     end
-    console
   end
 
   def goals
@@ -19,7 +18,6 @@ class AccountController < ApplicationController
       set_user
       @goals = @user.tasks
     end
-    console
   end
 
 
