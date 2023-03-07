@@ -19,7 +19,7 @@ export default class extends Controller {
   addTrixDialog() {
     const dialogHTML = `<div class="trix-dialog trix-dialog--link" data-trix-dialog="embed" data-trix-dialog-attribute="embed">
                           <div class="trix-dialog__link-fields">
-                            <input type="text" name="embed" class="trix-input trix-input--dialog" placeholder="Paste your URL" aria-label="embed code" required="" data-trix-input="" disabled="disabled">
+                            <input type="text" name="embed" class="trix-input trix-input--dialog" placeholder="Paste your URL" aria-label="embed" required="" data-trix-input="" disabled="disabled">
                             <div class="trix-button-group">
                               <input type="button" class="trix-button trix-button--dialog" data-trix-custom="add-embed" value="Add">
                             </div>
