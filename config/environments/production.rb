@@ -25,7 +25,7 @@ Rails.application.configure do
     enable_starttls_auto: true,
     port: 587,
     user_name: 'support@adamap.ch',
-    password: 'Basicsresearchproduct_2512'
+    password: 'Levelup_2512'
   }
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
