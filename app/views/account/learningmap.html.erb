@@ -12,7 +12,7 @@
       <% @goals.each_with_index do |goal, index| %>
         <% if current_user.task_progresses.find_by_task_id(goal.prerequisite_id).present? and current_user.task_progresses.find_by_task_id(goal.prerequisite_id).done? and current_user.task_progresses.find_by_task_id(goal.prerequisite_id).passed? or goal.prerequisite_id.empty? %>
           <div data-controller="learningmap" data-learningmap-id-value="<%=goal.id%>" data-learningmap-pre-value="<%=goal.prerequisite_id%>" class="h-96 translate">
-            <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class = "<%= goal.level %> <% if goal.level == @active_layer %>opacity-100<%end%>">
+            <div data-action="click->learningmap#move" data-learningmaps-target="start" id="<%=goal.id%>" class = "<%= goal.level %> dark:text-white <% if goal.level == @active_layer %>opacity-100<%end%>">
               <% if current_user.task_progresses.find_by_task_id(goal.id).done? && current_user.task_progresses.find_by_task_id(goal.id).passed? %>
                 <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-1 rounded dark:bg-green-900 dark:text-green-300 top-50">Done 🎉</span>
               <% elsif current_user.task_progresses.find_by_task_id(goal.id).done?%>

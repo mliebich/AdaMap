@@ -10,32 +10,34 @@
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
-  <nav class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white">
+  <nav class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white dark:bg-gray-800">
     <div class="container flex flex-wrap justify-between items-center mx-auto dark:bg-gray-800">
       <a href="https://www.adamap.ch" class="flex items-center">
-        <%= image_tag "logo.png" %>
+        <div>
+          <h1 class="absolute text-4xl font-extrabold top-7 left-3 dark:text-white">AdaMap</h1>
+          <%= image_tag "logo.png" %></div>
       </a>
       <div class="flex items-center md:order-2">
         <div class="relative" data-controller="dropdown">
           <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer block dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </div>
-          <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden z-10 text-sm">
-            <div class="bg-white shadow rounded border overflow-hidden">
+          <div data-dropdown-target="menu" class="absolute right-0 mt-2 hidden z-10 text-sm dark:bg-gray-700 dark:text-gray-200">
+            <div class="bg-white shadow rounded border overflow-hidden dark:bg-gray-700 dark:text-gray-200 ">
               <%if user_logged_in?%>
-                <%= link_to 'Account', account_path(:id => current_user), data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>
-                <%= link_to 'Goals', account_goals_path(:id => current_user), data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>
-                <%= link_to 'Learning map', account_learningmap_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-sky-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>
+                <%= link_to 'Account', account_path(:id => current_user), data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 text-gray-900 hover:bg-sky-300 whitespace-nowrap dark:hover:bg-gray-600 dark:text-white' %>
+                <%= link_to 'Goals', account_goals_path(:id => current_user), data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 hover:bg-sky-300 whitespace-nowrap dark:hover:bg-gray-600 dark:text-white' %>
+                <%= link_to 'Learning map', account_learningmap_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-sky-900 hover:bg-sky-300 whitespace-nowrap dark:hover:bg-gray-600 dark:text-white' %>
                 <% if current_user.has_role? :admin %>
-                  <%= link_to 'Tasks', tasks_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>
-                  <%= link_to 'Nodes', nodes_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>
-                  <%= link_to 'Users', users_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>
+                  <%= link_to 'Tasks', tasks_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 hover:bg-sky-300 whitespace-nowrap dark:hover:bg-gray-600 dark:text-white' %>
+                  <%= link_to 'Nodes', nodes_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 hover:bg-sky-300 whitespace-nowrap dark:hover:bg-gray-600 dark:text-white' %>
+                  <%= link_to 'Users', users_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 hover:bg-sky-300 whitespace-nowrap dark:hover:bg-gray-600 dark:text-white' %>
                 <% end %>
-                <%= link_to 'Logout', logout_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>
+                <%= link_to 'Logout', logout_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 hover:bg-sky-300 whitespace-nowrap dark:hover:bg-gray-600 dark:text-white' %>
               <% else %>
-                <%= link_to 'Login', login_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 bg-white hover:bg-sky-300 whitespace-nowrap' %>
+                <%= link_to 'Login', login_path, data: {action: "click->dropdown#toggle"}, class: 'no-underline block px-8 py-3 border-t text-gray-900 hover:bg-sky-300 whitespace-nowrap dark:hover:bg-gray-600 dark:text-white' %>
               <% end %>
             </div>
           </div>

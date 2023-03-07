@@ -2,9 +2,9 @@
   <h1 class="title">Users (admin only)</h1>
   <%= form_with(url: users_path, method: :get, data: {
   controller: "search-form", turbo_frame: "users", turbo_action: "advance"}) do |form| %>
-    <%= form.label :query, "Search users", class: "block mb-2" %>
+    <%= form.label :query, "Search users", class: "block mb-2 dark:text-gray-400" %>
     <div class="space-x-3 relative z-0 mb-6 w-full group">
-      <%= form.text_field :query, class: "w-1/5 shadow rounded-md border border-gray-200", data: {action: "input->search-form#search"} %>
+      <%= form.text_field :query, class: "w-1/5 shadow rounded-md border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", data: {action: "input->search-form#search"} %>
       <%= form.submit "Search", class: "btn-small cursor-pointer" %>
     </div>
   <% end %>
