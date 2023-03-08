@@ -43,8 +43,8 @@
 
   .layers {
     position: absolute;
-    top: 35%;
-    left: 30%;
+    top: 45%;
+    left: 17%;
     margin: -180px 0 0 -140px;
     user-select: none;
     transform: translate3d(0, 0, 0);
@@ -61,8 +61,8 @@
   }
   .layers > div {
     position: relative;
-    width: 150px;
-    height: 110px;
+    width: 120px;
+    height: 88px;
     border-radius: 12px;
     transform: rotateX(45deg) rotateY(0deg) rotate(-15deg);
     transition: all 0.4s ease;
