@@ -16,10 +16,17 @@
         <%= form.collection_check_boxes(:task_ids, Task.all, :id, :title) do |form| %>
           <br>
           <%= form.check_box class:"mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500", data: {  userid: @user.id, action: "tasks#addgoal"}%>
-          <%= form.label %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <%= form.submit class:"btn-small cursor-pointer" %>
-<% end %>
+          <% if Task.find_by_id(form.value).level == "basics" %>
+            <td class="py-4 px-6"><span class='basics-plain'><%=  Task.find_by_id(form.value).level %></span>
+            <% elsif Task.find_by_id(form.value).level =="product" %>
+              <td class="py-4 px-6"><span class='product-plain'><%=  Task.find_by_id(form.value).level %></span>
+              <% else %>
+                <td class="py-4 px-6"><span class='research-plain'><%=  Task.find_by_id(form.value).level %></span>
+                <% end %>
+                <%= form.label %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <%= form.submit class:"btn-small cursor-pointer" %>
+      <% end %>
