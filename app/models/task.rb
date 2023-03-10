@@ -13,6 +13,10 @@ class Task < ApplicationRecord
     prerequisite_id.empty?
   end
 
+  def title_with_level
+    "#{title} (#{level})"
+  end
+
   private
 
   def sanitize_prerequisite_id
