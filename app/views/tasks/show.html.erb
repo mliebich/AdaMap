@@ -1,8 +1,8 @@
 <%= turbo_frame_tag "modal" do %>
   <div class="fixed top-12 right-0 left-0 z-50 flex justify-center"  data-controller="tasks modal"data-modal-target="container" data-action="click->modal#closeBackground">
-    <div class="max-h-screen max-w-lg relative flex">
-      <div class="m-1 bg-white rounded shadow">
-        <div class="p-8">
+    <div class="max-h-screen max-w-lg relative flex flex-grow">
+      <div class="max-h-full max-w-lg overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl">
+        <div class="p-8 overflow-y-auto">
           <%= render @task %>
         </div>
       </div>
