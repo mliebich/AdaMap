@@ -43,7 +43,7 @@
             <td class="py-4 px-6"><%= goal.id %></td>
             <td class="py-4 px-6"><%= link_to 'Show', goal, class: "btn-small",  data: { turbo_frame: 'modal' } %></td>
             <td class="py-4 px-6"><% if @user.task_progresses.find_by_task_id(goal.id).done? %>
-                <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Done</span></td>
+                <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Done🎉</span></td>
             <% end %>
             <% if current_user.has_role? :admin %>
               <td class="py-4 px-6">
