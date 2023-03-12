@@ -4,9 +4,9 @@
     <%= form.label :email, "Email" %>
     <%= form.email_field :email %>
     <% if current_user.has_role? :admin %>
-      <div class="box pt-10">
+      <div class="box pt-10" data-controller="users" data-userid="<%= @user.id %>">
         <%= form.collection_check_boxes(:role_ids, Role.all, :id, :name) do |form| %>
-          <%= form.check_box class:"mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500" %>
+          <%= form.check_box class:"mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500", data: {  userid: @user.id, action: "users#setrole"} %>
           <%= form.label %>
         <% end %>
       </div>
